@@ -15,7 +15,7 @@ const Homepage = () => {
     <section>
       {
           store.map((item) => (
-            <Link id={item.id} to="./details" onClick={(e) => console.log(e.target.id)} key={item.id}>{item.name}</Link>
+            <Link className="links" id={item.id} to="./details" onClick={(e) => console.log(e.target.id)} key={item.id}>{item.name}</Link>
           ))
       }
     </section>
