@@ -1,16 +1,29 @@
 import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import objToArr from '../logics/objToArr';
+import { getAPI } from '../redux/Countries/countries';
 
 const Homepage = () => {
+  const dispatch = useDispatch();
+  const store = useSelector((state) => state.countriesReducer);
   const today = new Date();
-  const date = `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`;
-  console.log(date);
+  const date = `${today.getFullYear()}-${today.getMonth().toString().padStart(2, 0)}-${today.getDate().toString().padStart(2, 0)}`;
   useEffect(() => {
     fetch(`https://api.covid19tracking.narrativa.com/api/${date}`)
       .then((res) => res.json())
-      .then((json) => console.log(json.dates));
+      .then((json) => {
+        const data = objToArr(json.dates[date].countries);
+        dispatch(getAPI(data));
+      });
   }, []);
   return (
-    <h1>Homepage</h1>
+    <ul>
+      {
+          store.map((item) => (
+            <li key={item.id}>{item.name}</li>
+          ))
+      }
+    </ul>
   );
 };
 
