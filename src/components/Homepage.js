@@ -1,30 +1,24 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import objToArr from '../logics/objToArr';
-import { getAPI } from '../redux/Countries/countries';
+import { getAPIData } from '../redux/Countries/countries';
 
 const Homepage = () => {
   const dispatch = useDispatch();
   const store = useSelector((state) => state.countriesReducer);
-  const today = new Date();
-  const date = `${today.getFullYear()}-${today.getMonth().toString().padStart(2, 0)}-${today.getDate().toString().padStart(2, 0)}`;
+  console.log(store);
+
   useEffect(() => {
-    fetch(`https://api.covid19tracking.narrativa.com/api/${date}`)
-      .then((res) => res.json())
-      .then((json) => {
-        console.log(json);
-        const data = objToArr(json.dates[date].countries);
-        dispatch(getAPI(data));
-      });
+    if (store.length === 0) { dispatch(getAPIData()); }
   }, []);
   return (
-    <ul>
+    <section>
       {
           store.map((item) => (
-            <li key={item.id}>{item.name}</li>
+            <Link id={item.id} to="./details" onClick={(e) => console.log(e.target.id)} key={item.id}>{item.name}</Link>
           ))
       }
-    </ul>
+    </section>
   );
 };
 
