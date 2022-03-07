@@ -12,6 +12,7 @@ const Homepage = () => {
     fetch(`https://api.covid19tracking.narrativa.com/api/${date}`)
       .then((res) => res.json())
       .then((json) => {
+        console.log(json);
         const data = objToArr(json.dates[date].countries);
         dispatch(getAPI(data));
       });
