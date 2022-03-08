@@ -4,11 +4,8 @@ const objToArr = (obj) => {
   const countries = Object.keys(obj.dates[date].countries).map((id) => (
     obj.dates[date].countries[id]
   ));
-  const total = Object.keys(obj.total).map((id) => ({
-    id,
-    value: obj.total[id],
-  }));
-  return [countries, total];
+  const { total } = obj;
+  return [countries, [total]];
 };
 
 export default objToArr;

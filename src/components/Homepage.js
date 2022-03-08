@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAPIData } from '../redux/Countries/countries';
-import KeyItem from './Total';
 
 const Homepage = () => {
   const dispatch = useDispatch();
@@ -17,7 +16,11 @@ const Homepage = () => {
       {
         countries.length === 0
           ? <h1>Loading...</h1>
-          : <KeyItem obj={countries[1]} key="today_confirmed" value="value" />
+          : (
+            <div>
+              <h1>{countries[1][0].today_confirmed}</h1>
+            </div>
+          )
       }
       {
         countries.length === 0

@@ -1,4 +1,3 @@
-import KeyItem from '../components/Total';
 import objToArr from '../logics/objToArr';
 
 describe('Convert Object of Obj to Array of Obj', () => {
@@ -23,12 +22,5 @@ describe('Convert Object of Obj to Array of Obj', () => {
     expect(objToArr(obj)).toEqual([[{ id: 1, name: 'pakistan' }, { id: 2, name: 'india' }, { id: 3, name: 'afghanistan' }],
       [{ id: 'date', value: date },
         { id: 'name', value: 'Total' }]]);
-  });
-});
-
-describe('Seach item on its id', () => {
-  test('should return item matches to id', () => {
-    const obj = [{ id: 1, name: 'Pakistan' }, { id: 2, name: 'India' }, { id: 3, name: 'China' }];
-    expect(KeyItem(obj, 2, 'name')).toBe('Pakistan');
   });
 });

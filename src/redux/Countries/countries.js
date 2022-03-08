@@ -13,6 +13,7 @@ export const getAPIData = () => (dispatch) => {
   fetch(`https://api.covid19tracking.narrativa.com/api/${date}`)
     .then((res) => res.json())
     .then((json) => {
+      console.log(json);
       const data = objToArr(json);
       dispatch(getAPI(data));
     });
