@@ -1,5 +1,3 @@
-import objToArr from '../../logics/objToArr';
-
 const GET_API = 'CovidMonitor/data/GET_API';
 
 export const getAPI = (payload) => ({
@@ -13,8 +11,7 @@ export const getAPIData = () => (dispatch) => {
   fetch(`https://api.covid19tracking.narrativa.com/api/${date}`)
     .then((res) => res.json())
     .then((json) => {
-      const data = objToArr(json.dates[date].countries);
-      dispatch(getAPI(data));
+      dispatch(getAPI(json));
     });
 };
 
@@ -23,7 +20,7 @@ const initialState = [];
 const countriesReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_API:
-      return [...state, ...action.payload];
+      return [...state, action.payload];
     default:
       return state;
   }
