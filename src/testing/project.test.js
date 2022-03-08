@@ -1,4 +1,5 @@
-import { objToArr, KeyItem } from '../logics/objToArr';
+import KeyItem from '../components/Total';
+import objToArr from '../logics/objToArr';
 
 describe('Convert Object of Obj to Array of Obj', () => {
   test('should return Arr of Obj', () => {

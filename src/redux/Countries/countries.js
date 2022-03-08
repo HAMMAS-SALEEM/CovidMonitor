@@ -1,4 +1,4 @@
-import { objToArr } from '../../logics/objToArr';
+import objToArr from '../../logics/objToArr';
 
 const GET_API = 'CovidMonitor/data/GET_API';
 
@@ -10,12 +10,11 @@ export const getAPI = (payload) => ({
 export const getAPIData = () => (dispatch) => {
   const today = new Date();
   const date = `${today.getFullYear()}-${today.getMonth().toString().padStart(2, 0)}-${today.getDate().toString().padStart(2, 0)}`;
-  console.log(date);
   fetch(`https://api.covid19tracking.narrativa.com/api/${date}`)
     .then((res) => res.json())
     .then((json) => {
-      const date = objToArr(json);
-      dispatch(getAPI(date));
+      const data = objToArr(json);
+      dispatch(getAPI(data));
     });
 };
 

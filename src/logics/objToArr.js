@@ -1,4 +1,4 @@
-export const objToArr = (obj) => {
+const objToArr = (obj) => {
   const today = new Date();
   const date = `${today.getFullYear()}-${today.getMonth().toString().padStart(2, 0)}-${today.getDate().toString().padStart(2, 0)}`;
   const countries = Object.keys(obj.dates[date].countries).map((id) => (
@@ -11,10 +11,4 @@ export const objToArr = (obj) => {
   return [countries, total];
 };
 
-export const KeyItem = ({ obj, key, value }) => {
-  const item = obj.find((item) => {
-    if (item.id === key) { return item; }
-    return 'Item not found';
-  });
-  return <h1>{item[value]}</h1>;
-};
+export default objToArr;
