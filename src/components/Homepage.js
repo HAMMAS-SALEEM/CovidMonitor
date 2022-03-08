@@ -1,22 +1,29 @@
 import React, { useEffect } from 'react';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAPIData } from '../redux/Countries/countries';
+import { KeyItem } from '../logics/objToArr';
 
 const Homepage = () => {
   const dispatch = useDispatch();
-  const store = useSelector((state) => state.countriesReducer);
+  const countries = useSelector((state) => state.countriesReducer);
   useEffect(() => {
-    if (store.length === 0) { dispatch(getAPIData()); }
+    if (countries.length === 0) {
+      dispatch(getAPIData());
+    }
   }, []);
   return (
     <section>
-      {/* {
-          store.map((item) => (
-            <Link className="links" id={item.id} to="./details"
-            onClick={(e) => console.log(e.target.id)} key={item.id}>{item.name}</Link>
-          ))
-      } */}
+      {
+        countries.length === 0
+          ? <h1>Loading...</h1>
+          : <KeyItem obj={countries[1]} value="value" />
+      }
+      {
+        countries.length === 0
+          ? null
+          : countries[0].map((item) => <Link id={item.id} onClick={(e) => console.log(e.target.id)} className="country-link" key={item.id} to="./details">{item.name}</Link>)
+      }
     </section>
   );
 };
