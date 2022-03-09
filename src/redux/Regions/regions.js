@@ -7,13 +7,14 @@ const GET_REGION_API = 'CovidMonitor/data/GET_REGION_API';
 //   payload,
 // });
 
-export const getAPIRegion = () => {
+export const getAPIRegion = (id) => {
   const today = new Date();
-  const date = `${today.getFullYear()}-${today.getMonth().toString().padStart(2, 0)}-${today.getDate().toString().padStart(2, 0)}`;
-  fetch(`https://api.covid19tracking.narrativa.com/api/${date}/country/pakistan`)
+  const date = `${today.getFullYear()}-${(today.getMonth() + 1).toString().padStart(2, 0)}-${today.getDate().toString().padStart(2, 0)}`;
+  fetch(`https://api.covid19tracking.narrativa.com/api/${date}/country/${id}`)
     .then((res) => res.json())
     .then((json) => {
       console.log(json);
+      // console.log(objToArr(json, id));
     });
 };
 

@@ -1,13 +1,18 @@
 import './App.css';
+import React, { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Homepage from './components/Homepage';
 import Details from './components/Details';
 
 function App() {
+  const [id, setId] = useState('');
+  const handleDetail = (e) => {
+    setId(e.target.id);
+  };
   return (
     <Routes>
-      <Route path="/" element={<Homepage />} />
-      <Route path="/details" element={<Details />} />
+      <Route path="/" element={<Homepage handleDetail={handleDetail} />} />
+      <Route path="/details" element={<Details id={id} />} />
     </Routes>
   );
 }

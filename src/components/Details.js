@@ -1,14 +1,13 @@
 import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
+// import { useDispatch } from 'react-redux';
+import { getAPIRegion } from '../redux/Regions/regions';
 
-const Details = () => {
-  const today = new Date();
-  const date = `${today.getFullYear()}-${(today.getMonth() + 1).toString().padStart(2, 0)}-${today.getDate().toString().padStart(2, 0)}`;
+const Details = ({ id }) => {
+  // const dispatch = useDispatch();
   useEffect(() => {
-    fetch(`https://api.covid19tracking.narrativa.com/api/${date}/country/pakistan`)
-      .then((res) => res.json())
-      .then((json) => {
-        console.log(json);
-      });
+    console.log(id);
+    getAPIRegion(id);
   }, []);
   return (
     <h1>
@@ -16,4 +15,9 @@ const Details = () => {
     </h1>
   );
 };
+
+Details.propTypes = {
+  id: PropTypes.string.isRequired,
+};
+
 export default Details;
