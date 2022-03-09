@@ -1,10 +1,8 @@
 import objToArr, { convertToArr } from '../logics/objToArr';
+import date from '../logics/date';
 
 describe('Convert Object of Obj to Array of Obj', () => {
   test('should return Arr of Obj Countries', () => {
-    const today = new Date();
-    const date = `${today.getFullYear()}-${(today.getMonth() + 1).toString().padStart(2, 0)}-${today.getDate().toString().padStart(2, 0)}`;
-
     const obj = {
       dates: {
         [date]: {
@@ -23,12 +21,10 @@ describe('Convert Object of Obj to Array of Obj', () => {
     expect(objToArr(obj)).toEqual([[{ id: 1, name: 'pakistan' },
       { id: 2, name: 'india' },
       { id: 3, name: 'afghanistan' }],
-    [{ date: '2022-03-09', name: 'Total' }]]);
+    [{ date, name: 'Total' }]]);
   });
   test('Convert obj to arr', () => {
     const id = 'Pakistan';
-    const today = new Date();
-    const date = `${today.getFullYear()}-${(today.getMonth() + 1).toString().padStart(2, 0)}-${today.getDate().toString().padStart(2, 0)}`;
     const obj = {
       dates: {
         [date]: {

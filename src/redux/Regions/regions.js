@@ -1,4 +1,5 @@
 import { convertToArr } from '../../logics/objToArr';
+import date from '../../logics/date';
 
 const GET_API_REGION = 'CovidMonitor/data/GET_API_REGION';
 
@@ -8,9 +9,6 @@ const getAPI = (payload) => ({
 });
 
 export const getAPIRegion = (id) => (dispatch) => {
-  console.log(id);
-  const today = new Date();
-  const date = `${today.getFullYear()}-${(today.getMonth() + 1).toString().padStart(2, 0)}-${today.getDate().toString().padStart(2, 0)}`;
   fetch(`https://api.covid19tracking.narrativa.com/api/${date}/country/${id}`)
     .then((res) => res.json())
     .then((json) => {

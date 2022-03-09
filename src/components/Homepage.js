@@ -37,7 +37,10 @@ const Homepage = ({ handleDetail }) => {
             }
             return item.name.toLowerCase().includes(value);
           }).map((item) => (
-            <Link id={item.name} onClick={handleDetail} className="country-link" key={item.id} to="./details">{item.name}</Link>
+            <Link id={item.name} onClick={handleDetail} className="country-link" key={item.id} to="./details">
+              <img src={`https://countryflagsapi.com/png/${item.name}`} alt={item.name} />
+              <h2>{item.name}</h2>
+            </Link>
           ))
       }
     </section>

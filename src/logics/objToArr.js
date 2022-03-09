@@ -1,3 +1,5 @@
+import date from './date';
+
 const toggleData = (obj, id, date) => {
   const newDate = date;
   const newId = id;
@@ -14,8 +16,6 @@ const toggleData = (obj, id, date) => {
 };
 
 const objToArr = (obj, id = '') => {
-  const today = new Date();
-  const date = `${today.getFullYear()}-${(today.getMonth() + 1).toString().padStart(2, 0)}-${today.getDate().toString().padStart(2, 0)}`;
   const countries = toggleData(obj, id, date);
   const { total } = obj;
   return [countries, [total]];

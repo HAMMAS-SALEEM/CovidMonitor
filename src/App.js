@@ -1,6 +1,7 @@
 import './App.css';
 import React, { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
+import Navbar from './components/Navbar';
 import Homepage from './components/Homepage';
 import Details from './components/Details';
 
@@ -10,10 +11,13 @@ function App() {
     setId(e.target.id);
   };
   return (
-    <Routes>
-      <Route path="/" element={<Homepage handleDetail={handleDetail} />} />
-      <Route path="/details" element={<Details id={id} />} />
-    </Routes>
+    <>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Homepage handleDetail={handleDetail} />} />
+        <Route path="/details" element={<Details id={id} />} />
+      </Routes>
+    </>
   );
 }
 
