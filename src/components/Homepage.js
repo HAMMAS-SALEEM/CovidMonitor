@@ -26,7 +26,7 @@ const Homepage = ({ handleDetail }) => {
       {
         countries.length === 0
           ? null
-          : countries[0].map((item) => <Link id={item.id} onClick={handleDetail} className="country-link" key={item.id} to="./details">{item.name}</Link>)
+          : countries[0].map((item) => <Link id={item.name} onClick={handleDetail} className="country-link" key={item.id} to="./details">{item.name}</Link>)
       }
     </section>
   );
