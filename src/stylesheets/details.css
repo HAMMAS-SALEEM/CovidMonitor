@@ -1,0 +1,11 @@
+.single-region {
+    border: 1px solid red;
+}
+
+.hidden {
+    display: none;
+}
+
+.single-region:focus .hidden {
+    display: block;
+} 

@@ -1,3 +1,4 @@
+import '../stylesheets/details.css';
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
@@ -19,6 +20,7 @@ const Details = ({ id }) => {
             <div>
               <h1>{store[0].name}</h1>
               <h2>{store[0].today_confirmed}</h2>
+
               <div className="regions_container">
                 {
                   store[0].regions === 0
