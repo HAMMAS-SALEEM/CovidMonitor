@@ -1,0 +1,12 @@
+.single-region {
+  border: 1px solid red;
+  cursor: pointer;
+}
+
+.hidden {
+  background-color: blue;
+}
+
+.single-region:focus .hidden {
+  display: block;
+}
