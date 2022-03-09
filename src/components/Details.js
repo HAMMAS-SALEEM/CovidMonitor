@@ -7,7 +7,9 @@ import { getAPIRegion } from '../redux/Regions/regions';
 const Details = ({ id }) => {
   const dispatch = useDispatch();
   const store = useSelector((state) => state.regionsReducer);
-  console.log(store);
+  const handleToggle = (e) => {
+    console.log(e.target.id);
+  };
   useEffect(() => {
     dispatch(getAPIRegion(id));
   }, []);
@@ -26,7 +28,7 @@ const Details = ({ id }) => {
                   store[0].regions === 0
                     ? <h3>Not Avaiable</h3>
                     : store[0].regions.map((item) => (
-                      <div key={item.id} className="single-region">
+                      <button type="button" key={item.id} id={item.id} onClick={handleToggle} className="single-region">
                         <h3>{item.name}</h3>
                         <h3>
                           <span>Total Confirmed Cases</span>
@@ -36,7 +38,7 @@ const Details = ({ id }) => {
                           <span>Total Death Cases</span>
                           {item.today_deaths}
                         </h3>
-                      </div>
+                      </button>
                     ))
                 }
               </div>
