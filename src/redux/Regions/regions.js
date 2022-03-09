@@ -14,9 +14,7 @@ export const getAPIRegion = (id) => (dispatch) => {
   fetch(`https://api.covid19tracking.narrativa.com/api/${date}/country/${id}`)
     .then((res) => res.json())
     .then((json) => {
-      // console.log(json);
       const data = convertToArr(json, id, date);
-      // console.log(data);
       dispatch(getAPI(data));
     });
 };

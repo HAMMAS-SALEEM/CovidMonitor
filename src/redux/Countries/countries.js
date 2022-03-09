@@ -21,7 +21,6 @@ export const getAPIData = () => (dispatch) => {
 const initialState = [];
 
 const countriesReducer = (state = initialState, action) => {
-  console.log(action);
   switch (action.type) {
     case GET_API:
       return [...state, ...action.payload];
