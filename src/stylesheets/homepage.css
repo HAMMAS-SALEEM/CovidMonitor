@@ -1,4 +1,5 @@
 .countries-head {
+  padding: 20px 0;
   background-color: #ec4c8b;
   display: flex;
   flex-direction: column;
@@ -25,4 +26,37 @@
 
 .search-bar:focus {
   background-color: #e0dbae;
+}
+
+.countries-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+
+.countries-container > li {
+  list-style: none;
+  display: grid;
+}
+
+.active-item {
+  border: 1px solid #d1447a;
+}
+
+.country-link,
+.country-name,
+.country-cases {
+  width: fit-content;
+  justify-self: flex-end;
+}
+
+.next-icon {
+  width: 25px;
+}
+
+.country-map {
+  justify-self: center;
+}
+
+.country-name, .country-cases {
+  font-size: 14px;
 }

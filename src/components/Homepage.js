@@ -4,7 +4,9 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import { getAPIData } from '../redux/Countries/countries';
-import worldIcon from '../images/icons/world-icon.png';
+import globeIcon from '../images/icons/globe-icon.svg';
+import worldIcon from '../images/icons/world-icon.svg';
+import nextIcon from '../images/icons/next-icon.svg';
 
 const Homepage = ({ handleDetail }) => {
   const [value, setValue] = useState('');
@@ -26,7 +28,7 @@ const Homepage = ({ handleDetail }) => {
           : (
             <div className="countries-head">
               <div className="countries-header-data">
-                <img src={worldIcon} alt="world-icon" />
+                <img src={globeIcon} alt="world-icon" />
                 <div className="world-data">
                   <h2>Global Cases</h2>
                   <h3>{countries[1][0].today_confirmed}</h3>
@@ -41,7 +43,7 @@ const Homepage = ({ handleDetail }) => {
         countries.length === 0
           ? 'Please wait'
           : (
-            <ul>
+            <ul className="countries-container">
               {
               countries[0].filter((item) => {
                 if (value === '') {
@@ -49,10 +51,13 @@ const Homepage = ({ handleDetail }) => {
                 }
                 return item.name.toLowerCase().includes(value);
               }).map((item) => (
-                <li key={item.id}>
+                <li className="active-item" key={item.id}>
                   <Link id={item.name} onClick={handleDetail} className="country-link" to="./details">
-                    <h1 id={item.name}>{item.name}</h1>
+                    <img className="next-icon" id={item.name} src={nextIcon} alt="next-icon" />
                   </Link>
+                  <img className="country-map" src={worldIcon} alt="world-icon" />
+                  <h3 className="country-name">{item.name}</h3>
+                  <h3 className="country-cases">{item.today_confirmed}</h3>
                 </li>
               ))
             }
