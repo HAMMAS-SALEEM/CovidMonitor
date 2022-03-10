@@ -1,44 +1,60 @@
 import '../stylesheets/details.css';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAPIRegion } from '../redux/Regions/regions';
+import TitleContainer from './TitleContainer';
+import globeIcon from '../images/icons/world-icon.svg';
+import nextIcon from '../images/icons/next-icon.svg';
+import { currDate } from '../logics/date';
 
 const Details = ({ id }) => {
+  const [value, setValue] = useState('');
   const dispatch = useDispatch();
-  const store = useSelector((state) => state.regionsReducer);
-  const handleToggle = (e) => {
-    console.log(e.target.id);
+  const handleSearch = (e) => {
+    setValue(e.target.value.toLowerCase());
   };
+  const store = useSelector((state) => state.regionsReducer);
   useEffect(() => {
     dispatch(getAPIRegion(id));
   }, []);
   return (
-    <section>
+    <section className="details-section">
       {
         store.length === 0
           ? 'Loading...'
           : (
             <div>
-              <h1>{store[0].name}</h1>
-              <h2>{store[0].today_confirmed}</h2>
+              <TitleContainer
+                category={id}
+                store={store[0]}
+                icon={globeIcon}
+                handleSearch={handleSearch}
+                ticker={`CITY/TOWN BREAKDOWN - ${currDate}`}
+              />
 
-              <div className="regions_container">
+              <div className="regions-container">
                 {
-                  store[0].regions === 0
-                    ? <h3>Not Avaiable</h3>
-                    : store[0].regions.map((item) => (
-                      <button type="button" key={item.id} id={item.id} onClick={handleToggle} className="single-region">
-                        <h3>{item.name}</h3>
-                        <h3>
-                          <span>Total Confirmed Cases</span>
+                  store[0].regions.length === 0
+                    ? <span className="no-region">No Regions Available</span>
+                    : store[0].regions.filter((item) => {
+                      if (value === '') {
+                        return item;
+                      }
+                      return item.name.toLowerCase().includes(value);
+                    }).map((item, index) => (
+                      <div key={item.id} style={{ backgroundColor: index % 2 === 0 ? '#d1447a' : '#e74083' }} className="region-available">
+                        <span className="region-name">
+                          {item.name}
+                        </span>
+                        <span className="region-cases">
                           {item.today_confirmed}
-                        </h3>
-                        <h3 className="hidden">
-                          <span>Total Death Cases</span>
-                          {item.today_deaths}
-                        </h3>
-                      </button>
+                          <span>Cases</span>
+                        </span>
+                        <div className="region-next-icon">
+                          <img className="next-icon-details" src={nextIcon} alt="next-icon" />
+                        </div>
+                      </div>
                     ))
                 }
               </div>

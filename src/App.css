@@ -1,9 +1,6 @@
 * {
   padding: 0;
   margin: 0;
-}
-
-section {
-  display: flex;
-  flex-direction: column;
+  box-sizing: border-box;
+  color: white;
 }

@@ -1,0 +1,18 @@
+.nav-container {
+  background-color: #d1447a;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+}
+
+.back-icon,
+.mic-icon,
+.setting-icon {
+  width: 30px;
+}
+
+.mic-setting-container {
+  display: flex;
+  width: 90px;
+  justify-content: space-between;
+}
