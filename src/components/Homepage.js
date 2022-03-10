@@ -28,7 +28,7 @@ const Homepage = ({ handleDetail }) => {
           ? <h1>Loading...</h1>
           : (
             <div className="countries-head">
-              <TitleContainer store={countries[1][0]} icon={globeIcon} />
+              <TitleContainer category="Global Cases" store={countries[1][0]} icon={globeIcon} />
               <input type="text" placeholder="Search Countries..." className="search-bar" onInput={handleSearch} />
             </div>
           )

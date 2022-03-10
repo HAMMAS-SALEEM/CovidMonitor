@@ -1,17 +1,3 @@
-.countries-head {
-  padding: 20px 0;
-  background-color: #ec4c8b;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.countries-header-data {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  align-items: center;
-}
-
 .search-bar {
   margin: 20px 0;
   width: 90%;
