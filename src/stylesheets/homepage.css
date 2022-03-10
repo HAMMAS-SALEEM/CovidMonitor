@@ -1,0 +1,27 @@
+.countries-head {
+  background-color: #ec4c8b;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.countries-header-data {
+  display: flex;
+  align-items: center;
+}
+
+.search-bar {
+  margin: 20px 0;
+  width: 90%;
+  height: 30px;
+  border-radius: 3px;
+  outline: none;
+  border: none;
+  font-weight: bold;
+  color: black;
+  text-indent: 5px;
+}
+
+.search-bar:focus {
+  background-color: #e0b6c7;
+}

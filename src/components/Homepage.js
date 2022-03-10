@@ -1,8 +1,10 @@
+import '../stylesheets/homepage.css';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import { getAPIData } from '../redux/Countries/countries';
+import worldIcon from '../images/icons/world-icon.png';
 
 const Homepage = ({ handleDetail }) => {
   const [value, setValue] = useState('');
@@ -22,9 +24,15 @@ const Homepage = ({ handleDetail }) => {
         countries.length === 0
           ? <h1>Loading...</h1>
           : (
-            <div>
-              <h1>{countries[1][0].today_confirmed}</h1>
-              <input type="text" className="search-bar" onInput={handleSearch} />
+            <div className="countries-head">
+              <div className="countries-header-data">
+                <img src={worldIcon} alt="world-icon" />
+                <div className="world-data">
+                  <h2>Global Cases</h2>
+                  <h3>{countries[1][0].today_confirmed}</h3>
+                </div>
+              </div>
+              <input type="text" placeholder="Search Countries..." className="search-bar" onInput={handleSearch} />
             </div>
           )
       }
@@ -38,8 +46,7 @@ const Homepage = ({ handleDetail }) => {
             return item.name.toLowerCase().includes(value);
           }).map((item) => (
             <Link id={item.name} onClick={handleDetail} className="country-link" key={item.id} to="./details">
-              <img src={`https://countryflagsapi.com/png/${item.name}`} alt={item.name} />
-              <h2>{item.name}</h2>
+              <h1 id={item.name}>{item.name}</h1>
             </Link>
           ))
       }

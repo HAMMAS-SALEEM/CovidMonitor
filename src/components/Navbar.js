@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../stylesheets/nav.css';
-import backIcon from '../images/icons/back-icon.png';
-import micIcon from '../images/icons/mic-icon.png';
-import settingIcon from '../images/icons/setting-icon.png';
+import backIcon from '../images/icons/back-icon.svg';
+import micIcon from '../images/icons/mic-icon.svg';
+import settingIcon from '../images/icons/setting-icon.svg';
 
 const Navbar = () => (
   <header>

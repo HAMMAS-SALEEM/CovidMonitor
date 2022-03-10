@@ -2,9 +2,11 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  color: white;
 }
 
 section {
   display: flex;
   flex-direction: column;
+  background-color: #df4783;
 }
