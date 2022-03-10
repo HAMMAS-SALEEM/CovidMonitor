@@ -36,19 +36,28 @@ const Homepage = ({ handleDetail }) => {
             </div>
           )
       }
+
       {
         countries.length === 0
-          ? null
-          : countries[0].filter((item) => {
-            if (value === '') {
-              return item;
+          ? 'Please wait'
+          : (
+            <ul>
+              {
+              countries[0].filter((item) => {
+                if (value === '') {
+                  return item;
+                }
+                return item.name.toLowerCase().includes(value);
+              }).map((item) => (
+                <li key={item.id}>
+                  <Link id={item.name} onClick={handleDetail} className="country-link" to="./details">
+                    <h1 id={item.name}>{item.name}</h1>
+                  </Link>
+                </li>
+              ))
             }
-            return item.name.toLowerCase().includes(value);
-          }).map((item) => (
-            <Link id={item.name} onClick={handleDetail} className="country-link" key={item.id} to="./details">
-              <h1 id={item.name}>{item.name}</h1>
-            </Link>
-          ))
+            </ul>
+          )
       }
     </section>
   );
