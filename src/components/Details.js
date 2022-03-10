@@ -1,11 +1,11 @@
 import '../stylesheets/details.css';
-// import '../stylesheets/homepage.css';
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAPIRegion } from '../redux/Regions/regions';
 import TitleContainer from './TitleContainer';
 import globeIcon from '../images/icons/world-icon.svg';
+import nextIcon from '../images/icons/next-icon.svg';
 
 const Details = ({ id }) => {
   const dispatch = useDispatch();
@@ -22,21 +22,22 @@ const Details = ({ id }) => {
             <div>
               <TitleContainer category={id} store={store[0]} icon={globeIcon} />
 
-              <div className="regions_container">
+              <div className="regions-container">
                 {
-                  store[0].regions === 0
-                    ? <h3>Not Avaiable</h3>
-                    : store[0].regions.map((item) => (
-                      <div type="button" key={item.id} id={item.id} className="single-region">
-                        <h3>{item.name}</h3>
-                        <h3>
-                          <span>Total Confirmed Cases</span>
+                  store[0].regions.length === 0
+                    ? <span className="no-region">No Regions Available</span>
+                    : store[0].regions.map((item, index) => (
+                      <div key={item.id} style={{ backgroundColor: index % 2 === 0 ? '#d1447a' : '#e74083' }} className="region-available">
+                        <span className="region-name">
+                          {item.name}
+                        </span>
+                        <span className="region-cases">
                           {item.today_confirmed}
-                        </h3>
-                        <h3 className="hidden">
-                          <span>Total Death Cases</span>
-                          {item.today_deaths}
-                        </h3>
+                          <span>Cases</span>
+                        </span>
+                        <div className="region-next-icon">
+                          <img className="next-icon-details" src={nextIcon} alt="next-icon" />
+                        </div>
                       </div>
                     ))
                 }
