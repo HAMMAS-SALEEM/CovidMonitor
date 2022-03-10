@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import { getAPIData } from '../redux/Countries/countries';
+import TitleContainer from './TitleContainer';
 import globeIcon from '../images/icons/globe-icon.svg';
 import worldIcon from '../images/icons/world-icon.svg';
 import nextIcon from '../images/icons/next-icon.svg';
@@ -27,13 +28,7 @@ const Homepage = ({ handleDetail }) => {
           ? <h1>Loading...</h1>
           : (
             <div className="countries-head">
-              <div className="countries-header-data">
-                <img src={globeIcon} alt="world-icon" />
-                <div className="world-data">
-                  <h2>Global Cases</h2>
-                  <h3>{countries[1][0].today_confirmed}</h3>
-                </div>
-              </div>
+              <TitleContainer store={countries[1][0]} icon={globeIcon} />
               <input type="text" placeholder="Search Countries..." className="search-bar" onInput={handleSearch} />
             </div>
           )
