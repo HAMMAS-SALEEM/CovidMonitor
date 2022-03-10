@@ -9,10 +9,6 @@ const toggleData = (obj, id, date) => {
     ));
   }
   return undefined;
-  // Object.keys(obj.dates[newDate].countries[newId]).map((id) => (
-
-  //   obj.dates[newDate].countries[newId][id]
-  // ));
 };
 
 const objToArr = (obj, id = '') => {
@@ -21,9 +17,6 @@ const objToArr = (obj, id = '') => {
   return [countries, [total]];
 };
 
-export const convertToArr = (obj, id, date) => {
-  console.log(obj, id, date);
-  return [obj.dates[date].countries[id]];
-};
+export const convertToArr = (obj, id, date) => [obj.dates[date].countries[id]];
 
 export default objToArr;

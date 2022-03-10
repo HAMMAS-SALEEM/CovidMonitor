@@ -8,6 +8,7 @@ import TitleContainer from './TitleContainer';
 import globeIcon from '../images/icons/globe-icon.svg';
 import worldIcon from '../images/icons/world-icon.svg';
 import nextIcon from '../images/icons/next-icon.svg';
+import { currDate } from '../logics/date';
 
 const Homepage = ({ handleDetail }) => {
   const [value, setValue] = useState('');
@@ -26,7 +27,15 @@ const Homepage = ({ handleDetail }) => {
       {
         countries.length === 0
           ? <h1>Loading...</h1>
-          : <TitleContainer category="Global Cases" store={countries[1][0]} icon={globeIcon} handleSearch={handleSearch} />
+          : (
+            <TitleContainer
+              category="Global Cases"
+              store={countries[1][0]}
+              icon={globeIcon}
+              handleSearch={handleSearch}
+              ticker={`STATS BY COUNTRY - ${currDate}`}
+            />
+          )
       }
 
       {

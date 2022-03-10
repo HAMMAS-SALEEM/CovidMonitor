@@ -1,5 +1,6 @@
 import objToArr, { convertToArr } from '../logics/objToArr';
 import date from '../logics/date';
+// import getAPIData from '../redux/Countries/countries';
 
 describe('Convert Object of Obj to Array of Obj', () => {
   test('should return Arr of Obj Countries', () => {
@@ -40,3 +41,10 @@ describe('Convert Object of Obj to Array of Obj', () => {
     expect(convertToArr(obj, id, date)).toStrictEqual([{ name: 'Hammas', age: 21 }]);
   });
 });
+
+// describe('Testing APIs', () => {
+//   test('Fetch Countries API', () => {
+//     const dispatch = jest.fn();
+//     expect(getAPIData(dispatch)).toBe({});
+//   });
+// });

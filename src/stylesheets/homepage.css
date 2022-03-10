@@ -8,6 +8,11 @@
   display: grid;
 }
 
+.countries-container > li:nth-child(4n),
+.countries-container > li:nth-child(4n + 1) {
+  background: #fb5092;
+}
+
 .active-item {
   border: 1px solid #d1447a;
   background-color: #e74083;

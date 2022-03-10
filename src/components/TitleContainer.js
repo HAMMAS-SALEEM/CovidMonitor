@@ -3,18 +3,21 @@ import '../stylesheets/titleContainer.css';
 import PropTypes from 'prop-types';
 
 const TitleContainer = ({
-  category, icon, store, handleSearch,
+  category, icon, store, handleSearch, ticker,
 }) => (
-  <div className="countries-head">
-    <div className="countries-header-data">
-      <img src={icon} alt="world-icon" />
-      <div className="world-data">
-        <h2>{category}</h2>
-        <h3>{store.today_confirmed}</h3>
+  <>
+    <div className="countries-head">
+      <div className="countries-header-data">
+        <img src={icon} alt="world-icon" />
+        <div className="world-data">
+          <h2>{category}</h2>
+          <h3>{store.today_confirmed}</h3>
+        </div>
       </div>
+      <input type="text" placeholder="Search..." className="search-bar" onInput={handleSearch} />
     </div>
-    <input type="text" placeholder="Search..." className="search-bar" onInput={handleSearch} />
-  </div>
+    <p className="ticker">{ticker}</p>
+  </>
 );
 
 TitleContainer.propTypes = {
@@ -24,6 +27,7 @@ TitleContainer.propTypes = {
     today_confirmed: PropTypes.number.isRequired,
   }).isRequired,
   handleSearch: PropTypes.func.isRequired,
+  ticker: PropTypes.string.isRequired,
 };
 
 export default TitleContainer;
