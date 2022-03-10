@@ -3,10 +3,6 @@
   margin: 0;
   box-sizing: border-box;
   color: white;
-}
 
-section {
-  display: flex;
-  flex-direction: column;
-  background-color: #df4783;
+  /* background-color: #df4783; */
 }

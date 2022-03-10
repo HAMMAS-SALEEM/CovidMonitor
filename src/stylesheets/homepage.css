@@ -30,7 +30,7 @@
 
 .countries-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
 }
 
 .countries-container > li {
@@ -40,6 +40,7 @@
 
 .active-item {
   border: 1px solid #d1447a;
+  background-color: #e74083;
 }
 
 .country-link,
@@ -57,6 +58,15 @@
   justify-self: center;
 }
 
-.country-name, .country-cases {
+.country-name,
+.country-cases {
+  text-align: end;
+}
+
+.country-name {
+  font-size: 18px;
+}
+
+.country-cases {
   font-size: 14px;
 }
