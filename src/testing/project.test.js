@@ -1,6 +1,6 @@
 import objToArr, { convertToArr } from '../logics/objToArr';
 import date from '../logics/date';
-import { getAPIData } from '../redux/Countries/countries';
+import countriesReducer, { GET_API, getAPIData } from '../redux/Countries/countries';
 
 jest.mock('../redux/Countries/countries');
 
@@ -48,5 +48,22 @@ describe('Mock APIs', () => {
   test('Mock Countries API', () => {
     const dispatch = jest.fn();
     dispatch(getAPIData());
+  });
+});
+
+describe('Testing Redux', () => {
+  test('Testing Countries Reducer', () => {
+    const initialState = [];
+    const newState = countriesReducer(initialState, { type: GET_API, payload: [[{ id: '1', name: 'pakistan' }], [{ total: 1235634 }]] });
+    console.log(newState);
+    expect(newState()).not.toBe(initialState);
+    // expect(newState()).toBe([[{id: '1', name: 'pakistan'}],[{total:1235634}]]);
+  }),
+  test('Testing Countries Reducer part 2', () => {
+    const initialState = [];
+    const newState = countriesReducer(initialState, { type: GET_API, payload: [[{ id: '1', name: 'pakistan' }], [{ total: 1235634 }]] });
+    console.log(newState);
+    // expect(newState()).not.toBe(initialState);
+    expect(newState()).toBe([[{ id: '1', name: 'pakistan' }], [{ total: 1235634 }]]);
   });
 });

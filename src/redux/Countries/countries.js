@@ -1,7 +1,7 @@
 import objToArr from '../../logics/objToArr';
 import date from '../../logics/date';
 
-const GET_API = 'CovidMonitor/data/GET_API';
+export const GET_API = 'CovidMonitor/data/GET_API';
 
 const getCountries = (payload) => ({
   type: GET_API,
