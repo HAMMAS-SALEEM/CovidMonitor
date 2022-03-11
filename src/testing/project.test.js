@@ -1,6 +1,8 @@
 import objToArr, { convertToArr } from '../logics/objToArr';
 import date from '../logics/date';
-// import getAPIData from '../redux/Countries/countries';
+import { getAPIData } from '../redux/Countries/countries';
+
+jest.mock('../redux/Countries/countries');
 
 describe('Convert Object of Obj to Array of Obj', () => {
   test('should return Arr of Obj Countries', () => {
@@ -42,9 +44,9 @@ describe('Convert Object of Obj to Array of Obj', () => {
   });
 });
 
-// describe('Testing APIs', () => {
-//   test('Fetch Countries API', () => {
-//     const dispatch = jest.fn();
-//     expect(getAPIData(dispatch)).toBe({});
-//   });
-// });
+describe('Mock APIs', () => {
+  test('Mock Countries API', () => {
+    const dispatch = jest.fn();
+    dispatch(getAPIData());
+  });
+});
