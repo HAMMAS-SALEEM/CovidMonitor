@@ -19,7 +19,7 @@
 
 ## Video Walkthrough
 
-![Video Link](https://loom.com/share/ee8dcdcc603f41bb97a17a6250b357b0)
+[Video Link](https://loom.com/share/ee8dcdcc603f41bb97a17a6250b357b0)
 
 ## Get Live Demo
 
