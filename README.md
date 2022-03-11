@@ -23,7 +23,7 @@
 
 ## Get Live Demo
 
-[Live Demo Link]()
+[Live Demo Link](https://hammascovidmonitor.netlify.app/)
 
 ## Authors
 
