@@ -1,9 +1,9 @@
 import objToArr from '../../logics/objToArr';
 import date from '../../logics/date';
 
-export const GET_API = 'CovidMonitor/data/GET_API';
+const GET_API = 'CovidMonitor/data/GET_API';
 
-const getCountries = (payload) => ({
+export const getCountries = (payload) => ({
   type: GET_API,
   payload,
 });

@@ -1,8 +1,10 @@
 import objToArr, { convertToArr } from '../logics/objToArr';
 import date from '../logics/date';
-import countriesReducer, { GET_API, getAPIData } from '../redux/Countries/countries';
+import countriesReducer, { getCountries, getAPIData } from '../redux/Countries/countries';
+import regionsReducer, { getAPI, getAPIRegion } from '../redux/Regions/regions';
 
 jest.mock('../redux/Countries/countries');
+jest.mock('../redux/Regions/regions');
 
 describe('Convert Object of Obj to Array of Obj', () => {
   test('should return Arr of Obj Countries', () => {
@@ -49,21 +51,31 @@ describe('Mock APIs', () => {
     const dispatch = jest.fn();
     dispatch(getAPIData());
   });
+  test('Mock Regions API', () => {
+    const dispatch = jest.fn();
+    dispatch(getAPIRegion());
+  });
 });
 
 describe('Testing Redux', () => {
   test('Testing Countries Reducer', () => {
     const initialState = [];
-    const newState = countriesReducer(initialState, { type: GET_API, payload: [[{ id: '1', name: 'pakistan' }], [{ total: 1235634 }]] });
-    console.log(newState);
+    const newState = countriesReducer(initialState, getCountries);
     expect(newState()).not.toBe(initialState);
-    // expect(newState()).toBe([[{id: '1', name: 'pakistan'}],[{total:1235634}]]);
-  }),
-  test('Testing Countries Reducer part 2', () => {
+  });
+  test('Testing Countries State', () => {
     const initialState = [];
-    const newState = countriesReducer(initialState, { type: GET_API, payload: [[{ id: '1', name: 'pakistan' }], [{ total: 1235634 }]] });
-    console.log(newState);
-    // expect(newState()).not.toBe(initialState);
-    expect(newState()).toBe([[{ id: '1', name: 'pakistan' }], [{ total: 1235634 }]]);
+    const newState = countriesReducer(initialState, getCountries);
+    expect(newState()).toStrictEqual({ dates: { '2022-03-11': { countries: { pakistan: '194759' } } } });
+  });
+  test('Testing Regions Reducer', () => {
+    const initialState = [];
+    const newState = regionsReducer(initialState, getAPI);
+    expect(newState()).not.toBe(initialState);
+  });
+  test('Testing Regions State', () => {
+    const initialState = [];
+    const newState = regionsReducer(initialState, getAPI);
+    expect(newState()).toStrictEqual({ dates: { '2022-03-11': { countries: { pakistan: { confirmed_cases: '102848' } } } } });
   });
 });

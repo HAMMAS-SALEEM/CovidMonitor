@@ -3,7 +3,7 @@ import date from '../../logics/date';
 
 const GET_API_REGION = 'CovidMonitor/data/GET_API_REGION';
 
-const getAPI = (payload) => ({
+export const getAPI = (payload) => ({
   type: GET_API_REGION,
   payload,
 });
