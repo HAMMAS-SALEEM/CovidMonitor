@@ -1,6 +1,6 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# CovidMonitor Application
+# CovidMonitor
 
 > This web app is specially created on Covid. It basically shares information about the Covid Situation such as
 
