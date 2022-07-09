@@ -1,23 +1,23 @@
 import './App.css';
-import React from 'react';
+import React, { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import ErrorPage from './components/ErrorPage';
-// import Navbar from './components/Navbar';
-// import Homepage from './components/Homepage';
-// import Details from './components/Details';
+// import ErrorPage from './components/ErrorPage';
+import Navbar from './components/Navbar';
+import Homepage from './components/Homepage';
+import Details from './components/Details';
 
 function App() {
-  // const [id, setId] = useState('');
-  // const handleDetail = (e) => {
-  // setId(e.target.id);
-  // };
+  const [id, setId] = useState('');
+  const handleDetail = (e) => {
+    setId(e.target.id);
+  };
   return (
     <>
-      {/* <Navbar /> */}
+      <Navbar />
       <Routes>
-        <Route path="/" element={<ErrorPage />} />
-        {/* <Route path="/" element={<Homepage handleDetail={handleDetail} />} />
-        <Route path="/details" element={<Details id={id} />} /> */}
+        {/* <Route path="/" element={<ErrorPage />} /> */}
+        <Route path="/" element={<Homepage handleDetail={handleDetail} />} />
+        <Route path="/details" element={<Details id={id} />} />
       </Routes>
     </>
   );
