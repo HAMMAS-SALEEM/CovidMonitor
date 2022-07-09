@@ -10,7 +10,7 @@ const ErrorPage = () => (
       This may because of a technical error that we&apos;re working to fix.
     </p>
     <p className="error-page-msg">
-      Sorry for the inconvenience and thanks for visiting the page. 
+      Sorry for the inconvenience and thanks for visiting the page.
       Please visit our page sometime else.
     </p>
   </section>
