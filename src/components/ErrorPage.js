@@ -11,7 +11,9 @@ const ErrorPage = () => (
     </p>
     <p className="error-page-msg">
       Sorry for the inconvenience and thanks for visiting the page.
-      Please visit our page sometime else.
+      Please see the introductory&nbsp;
+      <a className="app-video-link" href="https://www.loom.com/share/ee8dcdcc603f41bb97a17a6250b357b0">video</a>
+      &nbsp;of our CovidMonitor application.
     </p>
   </section>
 );
