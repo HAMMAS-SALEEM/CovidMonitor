@@ -1,0 +1,22 @@
+.error-page {
+  background: rgb(247, 247, 249);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 100px 20px;
+}
+
+.error-page-img {
+  width: 150px;
+}
+
+.error-page-msg {
+  font-size: 20px;
+}
+
+.error-page-heading,
+.error-page-msg {
+  color: rgb(128, 127, 127);
+}
