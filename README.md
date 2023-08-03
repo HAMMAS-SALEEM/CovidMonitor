@@ -21,10 +21,6 @@
 
 https://www.loom.com/share/ee8dcdcc603f41bb97a17a6250b357b0
 
-## Get Live Demo
-
-[Live Demo Link](https://hammascovidmonitor.netlify.app/)
-
 ## Authors
 
 👤 **HAMMAS BIN SALEEM**
@@ -40,4 +36,4 @@ Feel free to check the [issues page](../../issues/).
 Give a ⭐️ if you like this project!
 
 ## Acknowledgments
-Original design is from [Nelson Sakwa on Behance](https://www.behance.net/sakwadesignstudio).
+The original design is from [Nelson Sakwa on Behance](https://www.behance.net/sakwadesignstudio).
